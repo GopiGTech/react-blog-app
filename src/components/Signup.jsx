@@ -1,11 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
   let [name,setName]= useState("")
   let [email,setEmail]= useState("")
   let [password,setPassword]= useState("")
 
+  const navigate = useNavigate();
 
 const handleSignup= ()=>{
   const userdata = {name,email,password}
@@ -13,6 +15,8 @@ const handleSignup= ()=>{
   localStorage.setItem("user",JSON.stringify(userdata))
 
   alert("Successfully Signed up")
+  
+  navigate("/dashboard");
 }
 
   return (
